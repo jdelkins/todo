@@ -1,0 +1,56 @@
+# This is a sample configuration file for todobot.
+
+# On startup, todobot reads a file in your home directory named ".todobot.cf"
+# which contains parameters necessary for it to run. For security, the file should not
+# be world-readable (although no check is done by the program).
+
+# The syntax is very simple. there are only 6 variables to set. Comments may be placed
+# anywhere by leading with a hash mark # and run until the end of the line.
+
+# Strings (on the RHS) may be quoted with " or ' (or not at all, as long as the
+# string contains no whitespace, commas, equal signs and so on, and is not equal
+# to one of the keywords "jid", "password", "resource", "permit", "logfile", "server",
+# or "port").
+# Inside a string, you can "backwhack" the string quote character to include such a
+# character in the string itself. for example, these are legal:
+jid = "my\"crazy'jid@somejabber.org"
+password = 'password-o\'-mine'
+
+# "jid" is the jabber id that the bot will run under.
+jid = "bot@myjabberserver.org"
+
+# "password" is obviously the password the bot will use when connecting to the server.
+password = 'my_secret'
+
+# "resource" is the resource that the bot will use to announce it's presence on the
+# network. You could have multiple bots running under the same jid with different
+# resources, but I can't see why that would be especially useful.
+resource = todobot
+
+# "permit" is special: it is a list of jids, in brackets and spearated by commas,
+# from whom the bot will permit commands.
+#
+# If a jid other than one listed here is encountered, the bot will print an error
+# message and refuse to answer meaningfully. The resource of the correspondent is stripped
+# when checking the jid against this list, so don't include any resource here.
+permit = [ "me@myserver.org", my_friend@anotherserver.com,
+       'someone-else\'with-a-long-jid@jabber.org', # comments here if you want
+       my-best@friend.com  #another comment
+]
+
+# If you only have one permitted client, you may also omit the brackets, like so:
+permit = only@buddy.us
+
+# The following two are optional. If not specified, gloox library will look up the
+# values advertised in the DNS record of the server part of the JID
+server = talk.google.com
+port = 5222
+
+# Location of log file. It must exist, and must be writable by the process.
+# Defaults to /dev/null
+logfile = "/home/me/todobot log.txt"
+
+# Location of todofile and donefile, which respectively are the databases for
+# the todo list and the archive of done items.
+todofile = "/home/me/todo/todo.txt"
+donefile = /home/me/todo/done.txt

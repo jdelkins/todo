@@ -1,0 +1,32 @@
+<VirtualHost *>
+    ServerName todo.elkins.cx
+    DocumentRoot /var/www/todo/
+    ServerAdmin webmaster@elkins.cx
+    DirectoryIndex todo.xhtml
+
+    SuexecUserGroup nobody jde
+
+    # this is an xhtml application, so serve it appropriately. However, MSIE is broken, so we have to serve it as text/html
+    AddType application/xhtml+xml .xhtml
+    RewriteEngine on
+    RewriteCond %{HTTP_USER_AGENT} (.*MSIE.*)
+    RewriteCond %{REQUEST_URI} \.xhtml$
+    RewriteRule .* - [T=text/html]
+
+    <Directory "/var/www/todo">
+	AllowOverride None
+	Options ExecCGI
+	Order allow,deny
+	Allow from all
+    </Directory>
+    <Location />
+	AuthType basic
+	AuthName "Todo Server"
+	AuthUserFile /etc/apache2/todo.htpasswd
+	Require valid-user
+	BrowserMatch "MSIE" AuthDigestEnableQueryStringHack=On
+    </Location>
+    <Files *.cgi>
+	SetHandler cgi-script
+    </Files>
+</VirtualHost>

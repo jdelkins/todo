@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+    <link href="todo.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="todoicon.png" />
+    <script type="text/javascript" src="JsonML.js"></script>
+    <script type="text/javascript" src="prototype-1.6.0.2.js"></script>
+    <script type="text/javascript" src="todo.js"></script>
+    <script type="text/javascript">
+      function doc_initialize() {
+	  perform_command('list');
+	  $('command').focus();
+	  return false;
+      }
+    </script>
+    <title>Todo</title>
+  </head>
+  <body onload="return doc_initialize();" onclick="$('commander').focus()">
+    <div id="commander">
+      <table>
+	<tr>
+	  <td><label class="command" for="command">todo&gt;</label></td>
+	  <td><input class="command" type="text" name="command" id="command" size="60" onkeyup="command_key(event)" /></td>
+	  <td align="right"><span class="command" id="filtered_by"></span></td>
+	  <td id="welcome" class="group">Type &quot;<span class='command'>help</span>&quot; for instructions.</td>
+	</tr>
+      </table>
+    </div>
+    <p/>
+    <div id="results" style="float:left"><span class="error">loading...</span></div>
+  </body>
+</html>
+<!--
+Local-Variables:
+mode-name: nXhtml
+nxhtml-global-minor-mode: t
+mumamo-global-mode: t
+nxhtml-global-validation-header-mode: t
+indent-region-mode: t
+End:
+-->

@@ -1,0 +1,13 @@
+
+quote(C,"#include <stdio.h>")
+quote(C,"#include <readline/readline.h>")
+quote(C,"#include <readline/history.h>")
+
+[string,unique] char *readline([string] char *prompt);
+void using_history();
+void add_history([string] const char * line);
+void clear_history();
+int read_history([string] const char *file);
+int write_history([string] const char *file);
+/* int rl_variable_bind([string] const char *var, [string] const char *val); */
+

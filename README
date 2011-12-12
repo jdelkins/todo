@@ -1,0 +1,34 @@
+			   TODO BUILD NOTES
+			   ================
+
+REQUIREMENTS
+
+all modules:
+  ocamlc
+  ocamlopt
+  g++
+  gcc
+
+cmdline module:
+  readline
+  camlidl
+
+cgi module:
+  ocamlnet (itself requiring pcre-ocaml, which of course requires pcre)
+  ocamlfind (required by json-wheel, which is included as a sub-module)
+
+todobot module:
+  pcre-ocaml (itself requiring pcre)
+  gloox (itself having numerous dependencies)
+
+OTHER NOTES
+
+Because of various OCaml implementation quirks, it is necessary to special-case
+some build rules. These should be automatically handled as much as possilbe.
+However:
+
+1. Under cygwin, you must export OSTYPE=cygwin to trap special naming of
+the readline runtime library.
+
+2. cgi and todobot modules are untested on any platform other than Linux amd64.
+

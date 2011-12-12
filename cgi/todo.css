@@ -1,0 +1,72 @@
+body { background: white; color: black }
+p.error { background: rgb(255,100,100); color: black; white-space: pre }
+p.error em { font-family: monospace }
+.command { font-family: monospace; font-size: small }
+
+/* task editing mini-screen */
+label.edittask { font-family: "bitstream vera sans", verdana, arial, sans-serif; font-size: medium; font-weight: bold }
+
+/* filter section */
+span.filterlabel { font-family: "bitstream vera sans", verdana, arial, sans-serif }
+span.filtertext { white-space: pre; font-family: monospace; color: navy; text-decoration: underline; cursor: pointer }
+
+/* the task table heading */
+table.tasklist { border-collapse: collapse }
+th.taskhead {
+    background: rgb(200,200,200);
+    color: black;
+    font-size: small;
+    font-weight: bold;
+    font-family: "bitstream vera sans", verdana, arial, sans-serif;
+    text-align: left;
+    border-width: medium;
+    border-style: solid none;
+    border-color: black
+}
+th.taskhead.number { text-align: right }
+th.taskhead.done { border-left-style: solid }
+th.taskhead.text { border-right-style: solid }
+
+span.taskhead { cursor: pointer }
+span.sorted { color: rgb(100,0,0); text-decoration: underline }
+
+/* the task table itself */
+td.taskmeta, td.tasktext, td.taskcheckbox, td.taskediticon {
+    border-bottom-style: dotted;
+    border-color: rgb(200,200,200);
+    border-width: thin;
+    background: white;
+    font-size: small;
+    font-family: "bitstream vera sans", verdana, arial, sans-serif;
+}
+td.id   { font-weight: bold; text-align: right }
+td.group { background: rgb(200,200,200); font-size: small; font-family: "bitstream vera sans", verdana, arial, sans-serif }
+td.dead { color: rgb(150,150,150); text-decoration: line-through }
+tr.prioa { color: rgb(200,100,100) }
+tr.priob { color: rgb(80,150,80) }
+tr.priox { color: rgb(100,100,200) }
+tr.today { color: rgb(200,50,50); font-weight: bold }
+tr.past  { color: rgb(150,50,150); font-weight: bold }
+td.dates, td.done { white-space: pre }
+
+/* the help screen */
+td.helpsection {
+    background: rgb(200,200,200);
+    font-family: "bitstream vera sans", verdana, arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+}
+td.helpinfo {
+    font-family: "bitstream vera sans", verdana, arial, sans-serif;
+    font-size: small;
+}
+td.helplist {
+    vertical-align: top;
+    font-family: monospace;
+    font-size: small;
+    white-space: pre;
+    color: rgb(50,50,100);
+}

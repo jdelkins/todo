@@ -1,0 +1,12 @@
+--- prototype-1.6.0.2.js	2008-03-02 23:28:46.000000000 -0600
++++ prototype-1.6.0.2.js.fixed	2008-03-03 01:33:11.000000000 -0600
+@@ -1270,7 +1270,8 @@
+     }
+ 
+     for (var name in headers)
+-      this.transport.setRequestHeader(name, headers[name]);
++      if (typeof headers[name] != 'function')
++        this.transport.setRequestHeader(name, headers[name]);
+   },
+ 
+   success: function() {
